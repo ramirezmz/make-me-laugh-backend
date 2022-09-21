@@ -28,13 +28,11 @@ app.post("/sign-in", (req, res) => {
   createUserWithEmailAndPassword(auth, req.body.email, req.body.password)
   .then((userCredential) => {
     const user = userCredential.user
-    // console.log(user)
     res.send(user)
   }).
   catch((error) => {
     const errorMessage = error.errorMessage
     res.send(errorMessage)
-    // console.log(errorMessage)
   })
 })
 
@@ -42,12 +40,10 @@ app.post("/login", (req, res) => {
   signInWithEmailAndPassword(auth, req.body.email, req.body.password)
   .then((userCredential) => {
     const user = userCredential.user
-    // console.log(user)
     res.send(user)
   })
   .catch((error) => {
     const errorMessage = error.message
-    // console.log(errorMessage)
     res.send(errorMessage)
   })
 })
